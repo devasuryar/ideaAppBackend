@@ -19,7 +19,6 @@ import static java.util.stream.Collectors.toList;
 @AllArgsConstructor
 @Slf4j
 public class TopicService {
-
     private final TopicRepository topicRepository;
     private final AuthService authService;
     private final TopicMapper topicMapper;
@@ -35,7 +34,7 @@ public class TopicService {
     @Transactional
     public TopicDto save(TopicDto topicDto) {
         Topic topic = topicRepository.save(topicMapper.mapDtoToTopic(topicDto));
-        topicDto.setId(topic.getTopicId());
+        topicDto.setTopicId(topic.getTopicId());
         return topicDto;
     }
 
